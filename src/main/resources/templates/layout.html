@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<meta charset="UTF-8" />
+<title>Bem-vindo</title>
+<link rel="icon" th:href="@{/image/favicon.png}" />
+<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+	rel="stylesheet" />
+<link
+	th:href="@{/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css}"
+	rel="stylesheet" />
+
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+	crossorigin="anonymous">
+
+</head>
+
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+
+	<nav th:replace="fragments/sidebar :: menu"></nav>
+	<div class="content-wrapper">
+		<div class="container-fluid" layout:fragment="corpo">
+		</div>
+	</div>
+
+
+
+	<!-- 	<footer th:replace="fragments/footer :: rodape"> -->
+	<!-- 	</footer> -->
+
+	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script th:src="@{/webjars/jquery-mask-plugin/dist/jquery.mask.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

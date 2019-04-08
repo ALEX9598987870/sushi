@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<div class="container-fluid" layout:fragment="corpo">
+
+		<form th:action="@{/prato/salvar}" class="w-50" th:object="${prato}" method="post" enctype="multipart/form-data">
+			<div class="form-group">
+		        <label for="nome">Prato</label>
+		        <input class="form-control" id="nome" type="text" placeholder="Informe o nome do prato." th:field="*{nome}">
+	        </div>
+	        
+	        <div class="form-group">
+	        	<label for="preco">Preço</label>
+	        	<input class="form-control" id="preco" type="text" placeholder="Informe o preço." th:field="*{preco}">
+	        </div>
+	        
+	        <div class="form-group">
+			    <label for="file">Imagem</label>
+			    <input type="file" class="form-control-file" id="file" th:field="*{file}">
+			  </div>
+	        
+	        
+			<input type="submit" value="Cadastrar" />
+		</form>
+		
+<!-- 		<form action="#" th:action="@{/greeting}" th:object="${greeting}" method="post"> 		-->
+<!-- 	    	<p>Id: <input type="text" th:field="*{id}" /></p> 									-->
+<!-- 	        <p>Message: <input type="text" th:field="*{content}" /></p> 						-->
+<!-- 	        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p> 	-->
+<!--    		</form> -->
+
+	</div>
+</body>
+</html>
