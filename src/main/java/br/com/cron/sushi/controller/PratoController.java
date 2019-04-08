@@ -5,7 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import br.com.cron.sushi.Util.Disco;
 import br.com.cron.sushi.model.Prato;
 import br.com.cron.sushi.service.PratoService;
 
@@ -16,6 +18,9 @@ public class PratoController {
 	@Autowired
 	private PratoService service;
 	
+	@Autowired
+	private Disco disco;
+	
 	@GetMapping("/cadastrar")
 	public String cadastrar(Prato prato) {
 		return "prato/cadastro";
@@ -23,9 +28,13 @@ public class PratoController {
 	
 	@PostMapping("/salvar")
 	private String salvar(Prato prato) {
+		disco.salvarFoto(prato.getFile());
+		prato.setFoto(prato.getFile().getOriginalFilename());
 		service.salvar(prato);
 		return "redirect:/prato/cadastrar";
 	}
+	
+	
 }
 
 
